@@ -2,13 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
 </head>
 
 <body>
-    <h1>Hello webpack!</h1>
+  <main class="container">
+    <section id="list-head">
+      <div class="header-container">
+        <div id="headline">
+          <p>Today's To Do</p>
+        </div>
+        <div id="sync">
+          <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/000000/synchronize.png" /></a>
+        </div>
+      </div>
+    </section>
+    <section id="list-body">
+      <form action="index.html" method="post">
+        <input type="text" id="input-box" name="new-item" value="" placeholder="Add to your list">
+        <div class="item-container">
+          <div class="form-item">
+            <input type="checkbox" id="0" name="todo" value="something">
+            <label for="0">something to do</label>
+          </div>
+          <div class="dot-menu">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="form-item">
+            <input type="checkbox" id="1" name="todo" value="something">
+            <label for="1">something to do</label>
+          </div>
+          <div class="dot-menu">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="form-item">
+            <input type="checkbox" id="2" name="todo" value="something">
+            <label for="2">something to do</label>
+          </div>
+          <div class="dot-menu">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="form-item">
+            <input type="checkbox" id="3" name="todo" value="something">
+            <label for="3">something to do</label>
+          </div>
+          <div class="dot-menu">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
+          </div>
+        </div>
+      </form>
+    </section>
+    <section id="list-foot">
+      <div class="clear">
+        <p>Clear all completed</p>
+      </div>
+    </section>
+
+
+  </main>
+
 </body>
 
 </html>
