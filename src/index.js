@@ -1,5 +1,5 @@
 import './style.css';
-// import { changeStatus } from "./tasks.js";
+import { changeStatus } from "./tasks.js";
 
 const tasks = [{
   description: 'something to do',
@@ -18,7 +18,7 @@ const tasks = [{
 },
 ];
 
-class TaskList {
+export class TaskList {
   constructor(arr){
     this.tasks = arr;
   }
@@ -60,20 +60,5 @@ tasks.forEach((item) => {
 });
 
 htmldiv.innerHTML = itemHtml;
-
-function changeStatus(arr){
-  const checkBoxes = document.querySelectorAll(".form-item input");
-  checkBoxes.forEach((item, i) => {
-    item.addEventListener("click", ()=>{
-      if (arr[i].completed){
-        arr[i].completed = false;
-      } else {
-        arr[i].completed = true;
-      }
-      console.log("status changed!")
-      localStorage.setItem("tasks", JSON.stringify(new TaskList(arr)));
-    });
-  });
-}
 
 changeStatus(tasks);
