@@ -1,7 +1,7 @@
 import './style.css';
 import * as statusModule from "./tasks.js";
 
-const tasks = [{
+let tasks = [{
   description: 'something to do',
   completed: false,
   index: 0,
@@ -24,9 +24,13 @@ export class TaskList {
   }
 }
 
-let tasklist = new TaskList(tasks);
+if (JSON.parse(localStorage.getItem('tasks')) == null){
+  let tasklist = new TaskList(tasks);
+  localStorage.setItem("tasks", JSON.stringify(tasklist));
+} else {
+  tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
+}
 
-localStorage.setItem("tasks", JSON.stringify(tasklist));
 // const obj = JSON.parse(localStorage.getItem('books'));
 
 const htmldiv = document.querySelector('.itemhtml');
