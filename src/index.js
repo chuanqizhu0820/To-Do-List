@@ -60,4 +60,4 @@ tasks.forEach((item) => {
 });
 
 htmldiv.innerHTML = itemHtml;
-console.log(changeStatus());
+changeStatus(tasks);
