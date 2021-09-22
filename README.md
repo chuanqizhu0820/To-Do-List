@@ -11,28 +11,40 @@ Webpack
 ## Live Demo
 
 
-<!-- ## Getting Started
+## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+Get a local copy on you computer, 
 
+```
+git clone https://github.com/chuanqizhu0820/to-do-list
+```
 
-To get a local copy up and running follow these simple example steps.
+<!-- ### Prerequisites -->
 
-### Prerequisites
-
-### Setup
+<!-- ### Setup -->
 
 ### Install
+install all the packages listed in the package.json file
+```
+npm install
+```
 
 ### Usage
+build your files in you ./dist folder from those in the ./src
+```
+npm run build
+```
+start your webpack dev server
+```
+npm start
+```
 
-### Run tests
+<!-- ### Run tests
 
-### Deployment
+### Deployment -->
 
 ## Authors
- -->
+
 👤 **Author1**
 
 - GitHub: [@chuanqizhu0820](https://github.com/chuanqizhu0820)
