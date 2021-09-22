@@ -18,6 +18,17 @@ const tasks = [{
 },
 ];
 
+class TaskList {
+  constructor(arr){
+    this.tasks = arr;
+  }
+}
+
+let tasklist = new TaskList(tasks);
+
+localStorage.setItem("tasks", JSON.stringify(tasklist));
+// const obj = JSON.parse(localStorage.getItem('books'));
+
 const htmldiv = document.querySelector('.itemhtml');
 
 let itemHtml = '';
