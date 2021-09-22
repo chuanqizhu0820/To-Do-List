@@ -1,5 +1,5 @@
 import './style.css';
-import { changeStatus } from "./tasks.js";
+import * as statusModule from "./tasks.js";
 
 const tasks = [{
   description: 'something to do',
@@ -61,4 +61,4 @@ tasks.forEach((item) => {
 
 htmldiv.innerHTML = itemHtml;
 
-changeStatus(tasks);
+statusModule.changeStatus(tasks);
