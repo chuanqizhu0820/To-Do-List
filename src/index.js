@@ -1,5 +1,5 @@
+import * as TaskModule from './tasks.js';
 import './style.css';
-import * as statusModule from "./tasks.js";
 
 let tasks = [{
   description: 'something to do',
@@ -18,15 +18,9 @@ let tasks = [{
 },
 ];
 
-export class TaskList {
-  constructor(arr){
-    this.tasks = arr;
-  }
-}
-
-if (JSON.parse(localStorage.getItem('tasks')) == null){
-  let tasklist = new TaskList(tasks);
-  localStorage.setItem("tasks", JSON.stringify(tasklist));
+if (JSON.parse(localStorage.getItem('tasks')) == null) {
+  const tasklist = new TaskModule.TaskList(tasks);
+  localStorage.setItem('tasks', JSON.stringify(tasklist));
 } else {
   tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
 }
@@ -37,7 +31,7 @@ const htmldiv = document.querySelector('.itemhtml');
 
 let itemHtml = '';
 tasks.forEach((item) => {
-  if (item.completed){
+  if (item.completed) {
     itemHtml
       += `<div class="item-container">
        <div class="form-item">
@@ -48,7 +42,7 @@ tasks.forEach((item) => {
        <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
        </div>
        </div>`;
-  }else{
+  } else {
     itemHtml
       += `<div class="item-container">
        <div class="form-item">
@@ -60,9 +54,8 @@ tasks.forEach((item) => {
        </div>
        </div>`;
   }
-
 });
 
 htmldiv.innerHTML = itemHtml;
 
-statusModule.changeStatus(tasks);
+TaskModule.changeStatus(tasks);

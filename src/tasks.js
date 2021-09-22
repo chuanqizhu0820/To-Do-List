@@ -1,17 +1,19 @@
-import {TaskList} from "./index.js";
+export class TaskList {
+  constructor(arr) {
+    this.tasks = arr;
+  }
+}
 
-function changeStatus(arr){
-  const checkBoxes = document.querySelectorAll(".form-item input");
+export function changeStatus(arr) {
+  const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item, i) => {
-    item.addEventListener("click", ()=>{
-      if (arr[i].completed){
+    item.addEventListener('click', () => {
+      if (arr[i].completed) {
         arr[i].completed = false;
       } else {
         arr[i].completed = true;
       }
-      localStorage.setItem("tasks", JSON.stringify(new TaskList(arr)));
+      localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
     });
   });
 }
-
-export {changeStatus};
