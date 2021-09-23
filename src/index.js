@@ -1,31 +1,12 @@
 import * as TaskModule from './tasks.js';
 import './style.css';
 
-let tasks = [{
-  description: 'something to do',
-  completed: false,
-  index: 0,
-},
-{
-  description: 'something to do',
-  completed: false,
-  index: 1,
-},
-{
-  description: 'something to do',
-  completed: false,
-  index: 2,
-},
-];
-
-if (JSON.parse(localStorage.getItem('tasks')) == null) {
-  const tasklist = new TaskModule.TaskList(tasks);
-  localStorage.setItem('tasks', JSON.stringify(tasklist));
-} else {
-  tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
+let tasks = [];
+if (JSON.parse(localStorage.getItem('tasks')) !== null) {
+    tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
 }
 
-// const obj = JSON.parse(localStorage.getItem('books'));
+// console.log(tasks);
 
 const htmldiv = document.querySelector('.itemhtml');
 
@@ -59,3 +40,4 @@ tasks.forEach((item) => {
 htmldiv.innerHTML = itemHtml;
 
 TaskModule.changeStatus(tasks);
+TaskModule.removeTask(tasks);

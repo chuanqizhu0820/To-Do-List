@@ -17,3 +17,22 @@ export function changeStatus(arr) {
     });
   });
 }
+
+export function removeTask(arr){
+  const clearBtn = document.querySelector('#clear-btn');
+  let remainingTask = [];
+  clearBtn.addEventListener('click', ()=>{
+    arr.forEach((item, i) => {
+      if (item.completed==false){
+        remainingTask.push(item);
+      }
+    });
+      arr = remainingTask;
+      localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+      location.reload();
+  })
+}
+
+export function addTask(arr){
+
+}
