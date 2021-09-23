@@ -3,7 +3,6 @@ main {
   margin-left: 50vw;
   margin-top: 50px;
   transform: translate(-50%);
-
   /* border: #BCBABA solid 1px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -48,13 +47,27 @@ main {
   border-top: #dfd9d9 solid 1px;
 }
 
+.hidden-edit-input {
+  display: none;
+  border: none;
+}
+
+.hidden-edit-input:focus {
+  outline: none;
+}
+
+.visiable-input {
+  display: block;
+}
+
+
 /* stylelint-disable */
-.dot-menu > img {
+.dot-menu>img {
   width: 50%;
   height: auto;
 }
-/* stylelint-enable */
 
+/* stylelint-enable */
 .dot-menu {
   text-align: center;
 }
@@ -74,8 +87,6 @@ main {
 .clear a:hover {
   color: #585858;
 }
-
-
 
 .clear p {
   margin-top: 12px;

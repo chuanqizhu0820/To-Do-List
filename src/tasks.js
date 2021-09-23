@@ -54,3 +54,14 @@ form.addEventListener('submit', (e)=>{
   location.reload();
   })
 }
+
+export function editTask(arr){
+  const editImg = document.querySelectorAll('.dot-menu img');
+  editImg.forEach((item, i) => {
+    item.addEventListener("click", ()=>{
+      item.parentNode.parentNode.querySelector(".hidden-edit-input").style.display = "block";
+      item.parentNode.parentNode.querySelector(".visiable-input").style.display = "none";
+    })
+  });
+
+}

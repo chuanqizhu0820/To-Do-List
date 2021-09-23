@@ -28,8 +28,11 @@ taskreverse.forEach((item) => {
     itemHtml
       += `<div class="item-container">
        <div class="form-item">
+       <div class="visiable-input">
        <input type="checkbox" id="${item.index}" name="todo" value="something">
        <label for="${item.index}">${item.description}</label>
+       </div>
+       <input class="hidden-edit-input" type="text" name="todo" value="${item.description}">
        </div>
        <div class="dot-menu">
        <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
@@ -43,3 +46,4 @@ htmldiv.innerHTML = itemHtml;
 TaskModule.changeStatus(tasks);
 TaskModule.removeTask(tasks);
 TaskModule.addTask(tasks);
+TaskModule.editTask(tasks);
