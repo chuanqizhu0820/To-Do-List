@@ -65,3 +65,19 @@ main {
   border: solid #f2efef 1px;
   background-color: #f2efef;
 }
+
+.clear a {
+  text-decoration: none;
+  color: #909090;
+}
+
+.clear a:hover {
+  color: #585858;
+}
+
+
+
+.clear p {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}

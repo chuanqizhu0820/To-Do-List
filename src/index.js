@@ -11,7 +11,8 @@ if (JSON.parse(localStorage.getItem('tasks')) !== null) {
 const htmldiv = document.querySelector('.itemhtml');
 
 let itemHtml = '';
-tasks.forEach((item) => {
+let taskreverse = [...tasks].reverse();
+taskreverse.forEach((item) => {
   if (item.completed) {
     itemHtml
       += `<div class="item-container">
@@ -41,3 +42,4 @@ htmldiv.innerHTML = itemHtml;
 
 TaskModule.changeStatus(tasks);
 TaskModule.removeTask(tasks);
+TaskModule.addTask(tasks);
