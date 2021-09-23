@@ -9,6 +9,7 @@ HTML CSS Javascript
 Webpack
 
 ## Live Demo
+https://chuanqizhu0820.github.io/to-do-list/dist/
 
 
 ## Getting Started
