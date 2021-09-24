@@ -8,10 +8,10 @@ export function changeStatus(arr) {
   const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item) => {
     item.addEventListener('click', (e) => {
-      if (arr[parseInt(e.target.id)].completed) {
-        arr[parseInt(e.target.id)].completed = false;
+      if (arr[parseInt(e.target.id-1)].completed) {
+        arr[parseInt(e.target.id-1)].completed = false;
       } else {
-        arr[parseInt(e.target.id)].completed = true;
+        arr[parseInt(e.target.id-1)].completed = true;
       }
       localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
       location.reload();
@@ -23,7 +23,7 @@ export function removeCompletedTask(arr) {
   const clearBtn = document.querySelector('#clear-btn');
   clearBtn.addEventListener('click', () => {
     let arr0 = arr.filter(item => item.completed == false);
-    arr0.map((item, i) => item.index = i);
+    arr0.map((item, i) => item.index = i+1);
     localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
     location.reload();
   })
@@ -37,7 +37,7 @@ export function addTask(arr) {
     let item = {
       description: taskValue,
       completed: false,
-      index: arr.length
+      index: arr.length+1
     }
     arr.push(item);
     localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
@@ -69,7 +69,7 @@ export function editTask(arr) {
         if (event.keyCode === 13) {
           visiableInput.querySelector("label").textContent = hiddenInput.value;
           let itemIndex = visiableInput.querySelector('input').id;
-          arr[itemIndex].description = hiddenInput.value;
+          arr[itemIndex-1].description = hiddenInput.value;
           localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
           location.reload();
         }
@@ -77,7 +77,7 @@ export function editTask(arr) {
       // waiting for be removed
       item.addEventListener("click", (e) => {
         let itemIndex = e.target.parentNode.parentNode.querySelector(".visiable-input").querySelector("input").id;
-        let count = 0;
+        let count = 1;
         let remainingTask = [];
         arr.forEach((item, i) => {
           if (item.index != itemIndex) {
