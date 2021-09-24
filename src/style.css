@@ -3,7 +3,6 @@ main {
   margin-left: 50vw;
   margin-top: 50px;
   transform: translate(-50%);
-  /* border: #BCBABA solid 1px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -37,14 +36,14 @@ main {
   outline: none;
 }
 
-.checked{
+.checked {
   padding-top: 8px;
   padding-bottom: 12px;
   padding-left: 7px;
   border-top: #dfd9d9 solid 1px;
 }
 
-.checked label{
+.checked label {
   text-decoration: line-through;
 }
 
@@ -72,7 +71,6 @@ main {
 .unchecked .visiable-input {
   display: block;
 }
-
 
 /* stylelint-disable */
 .unchecked .dot-menu>img {

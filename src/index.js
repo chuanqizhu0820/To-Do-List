@@ -3,13 +3,13 @@ import './style.css';
 
 let tasks = [];
 if (JSON.parse(localStorage.getItem('tasks')) !== null) {
-    tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
+  tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
 }
 
 const htmldiv = document.querySelector('.itemhtml');
 
 let itemHtml = '';
-let taskreverse = [...tasks].reverse();
+const taskreverse = [...tasks].reverse();
 taskreverse.forEach((item) => {
   if (item.completed) {
     itemHtml
