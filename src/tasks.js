@@ -19,7 +19,7 @@ export function changeStatus(arr) {
   });
 }
 
-export function removeTask(arr){
+export function removeCompletedTask(arr){
   const clearBtn = document.querySelector('#clear-btn');
   let remainingTask = [];
   clearBtn.addEventListener('click', ()=>{
@@ -59,8 +59,37 @@ export function editTask(arr){
   const editImg = document.querySelectorAll('.dot-menu img');
   editImg.forEach((item, i) => {
     item.addEventListener("click", ()=>{
-      item.parentNode.parentNode.querySelector(".hidden-edit-input").style.display = "block";
-      item.parentNode.parentNode.querySelector(".visiable-input").style.display = "none";
+      const hiddenInput = item.parentNode.parentNode.querySelector(".hidden-edit-input");
+      const visiableInput = item.parentNode.parentNode.querySelector(".visiable-input");
+      item.src = "https://img.icons8.com/material-outlined/24/000000/trash--v2.png";
+
+      hiddenInput.style.display = "block";
+      visiableInput.style.display = "none";
+      hiddenInput.addEventListener("keyup", ()=>{
+        if (event.keyCode === 13){
+          visiableInput.querySelector("label").textContent = hiddenInput.value;
+          let itemIndex = visiableInput.querySelector('input').id;
+          arr[itemIndex].description =hiddenInput.value;
+          localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+          location.reload();
+        }
+      })
+      item.addEventListener("click",(e)=>{
+        let itemIndex = e.target.parentNode.parentNode.querySelector(".visiable-input").querySelector("input").id;
+        let count = 0;
+        let remainingTask = [];
+        arr.forEach((item, i) => {
+          if (item.index != itemIndex){
+            item.index = count;
+            remainingTask.push(item);
+            count ++;
+          }
+        });
+          arr = remainingTask;
+          localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+          location.reload();
+      })
+
     })
   });
 

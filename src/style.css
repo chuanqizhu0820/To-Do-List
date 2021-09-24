@@ -63,13 +63,14 @@ main {
 
 /* stylelint-disable */
 .dot-menu>img {
-  width: 50%;
+  width: 75%;
   height: auto;
 }
 
 /* stylelint-enable */
 .dot-menu {
   text-align: center;
+  margin-right: 10px;
 }
 
 .clear {

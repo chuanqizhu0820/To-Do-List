@@ -6,8 +6,6 @@ if (JSON.parse(localStorage.getItem('tasks')) !== null) {
     tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
 }
 
-// console.log(tasks);
-
 const htmldiv = document.querySelector('.itemhtml');
 
 let itemHtml = '';
@@ -32,10 +30,10 @@ taskreverse.forEach((item) => {
        <input type="checkbox" id="${item.index}" name="todo" value="something">
        <label for="${item.index}">${item.description}</label>
        </div>
-       <input class="hidden-edit-input" type="text" name="todo" value="${item.description}">
+       <input class="hidden-edit-input" type="text" name="todo" value="${item.description}" autofocus>
        </div>
        <div class="dot-menu">
-       <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
+       <img src="https://img.icons8.com/windows/32/000000/menu-2.png"/>
        </div>
        </div>`;
   }
@@ -44,6 +42,6 @@ taskreverse.forEach((item) => {
 htmldiv.innerHTML = itemHtml;
 
 TaskModule.changeStatus(tasks);
-TaskModule.removeTask(tasks);
+TaskModule.removeCompletedTask(tasks);
 TaskModule.addTask(tasks);
 TaskModule.editTask(tasks);
