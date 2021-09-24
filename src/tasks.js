@@ -19,47 +19,39 @@ export function changeStatus(arr) {
   });
 }
 
-export function removeCompletedTask(arr){
+export function removeCompletedTask(arr) {
   const clearBtn = document.querySelector('#clear-btn');
-  let remainingTask = [];
-  clearBtn.addEventListener('click', ()=>{
-    let count = 0;
-    arr.forEach((item, i) => {
-      if (item.completed==false){
-        item.index = count;
-        remainingTask.push(item);
-        count ++;
-      }
-    });
-      arr = remainingTask;
-      localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-      location.reload();
+  clearBtn.addEventListener('click', () => {
+    let arr0 = arr.filter(item => item.completed == false);
+    arr0.map((item, i) => item.index = i);
+    localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
+    location.reload();
   })
 }
 
-export function addTask(arr){
-const inputBox = document.querySelector('#input-box');
-const form = document.querySelector('form')
-form.addEventListener('submit', (e)=>{
-  let taskValue = inputBox.value;
-  let item = {
-    description: taskValue,
-    completed: false,
-    index: arr.length
-  }
-  arr.push(item);
-  localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-  inputBox.value = "";
-  e.preventDefault();
-  location.reload();
+export function addTask(arr) {
+  const inputBox = document.querySelector('#input-box');
+  const form = document.querySelector('form')
+  form.addEventListener('submit', (e) => {
+    let taskValue = inputBox.value;
+    let item = {
+      description: taskValue,
+      completed: false,
+      index: arr.length
+    }
+    arr.push(item);
+    localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+    inputBox.value = "";
+    e.preventDefault();
+    location.reload();
   })
 }
 
-export function editTask(arr){
+export function editTask(arr) {
   const editImg = document.querySelectorAll('.dot-menu img');
   editImg.forEach((item, i) => {
 
-    item.addEventListener("click", ()=>{
+    item.addEventListener("click", () => {
       const hiddenInput = item.parentNode.parentNode.querySelector(".hidden-edit-input");
       const visiableInput = item.parentNode.parentNode.querySelector(".visiable-input");
 
@@ -69,34 +61,34 @@ export function editTask(arr){
       hiddenInput.style.display = "block";
       hiddenInput.setSelectionRange(hiddenInput.value.length, hiddenInput.value.length);
       hiddenInput.focus();
-      item.parentNode.parentNode.style.backgroundColor="#FFFF99";
+      item.parentNode.parentNode.style.backgroundColor = "#FFFF99";
 
 
       // waiting for being edited
-      hiddenInput.addEventListener("keyup", ()=>{
-        if (event.keyCode === 13){
+      hiddenInput.addEventListener("keyup", () => {
+        if (event.keyCode === 13) {
           visiableInput.querySelector("label").textContent = hiddenInput.value;
           let itemIndex = visiableInput.querySelector('input').id;
-          arr[itemIndex].description =hiddenInput.value;
+          arr[itemIndex].description = hiddenInput.value;
           localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
           location.reload();
         }
       })
       // waiting for be removed
-      item.addEventListener("click",(e)=>{
+      item.addEventListener("click", (e) => {
         let itemIndex = e.target.parentNode.parentNode.querySelector(".visiable-input").querySelector("input").id;
         let count = 0;
         let remainingTask = [];
         arr.forEach((item, i) => {
-          if (item.index != itemIndex){
+          if (item.index != itemIndex) {
             item.index = count;
             remainingTask.push(item);
-            count ++;
+            count++;
           }
         });
-          arr = remainingTask;
-          localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-          location.reload();
+        arr = remainingTask;
+        localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+        location.reload();
       })
 
     })
