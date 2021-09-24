@@ -13,18 +13,15 @@ let taskreverse = [...tasks].reverse();
 taskreverse.forEach((item) => {
   if (item.completed) {
     itemHtml
-      += `<div class="item-container">
+      += `<div class="item-container checked">
        <div class="form-item">
        <input type="checkbox" id="${item.index}" name="todo" value="something" checked>
        <label for="${item.index}">${item.description}</label>
        </div>
-       <div class="dot-menu">
-       <img src="https://img.icons8.com/fluency-systems-regular/48/000000/menu-2.png" />
-       </div>
        </div>`;
   } else {
     itemHtml
-      += `<div class="item-container">
+      += `<div class="item-container unchecked">
        <div class="form-item">
        <div class="visiable-input">
        <input type="checkbox" id="${item.index}" name="todo" value="something">

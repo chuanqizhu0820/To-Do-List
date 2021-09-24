@@ -8,13 +8,13 @@ export function changeStatus(arr) {
   const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item) => {
     item.addEventListener('click', (e) => {
-      console.log(e.target.id);
       if (arr[parseInt(e.target.id)].completed) {
-        item.completed = false;
+        arr[parseInt(e.target.id)].completed = false;
       } else {
         arr[parseInt(e.target.id)].completed = true;
       }
       localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+      location.reload();
     });
   });
 }
@@ -58,13 +58,21 @@ form.addEventListener('submit', (e)=>{
 export function editTask(arr){
   const editImg = document.querySelectorAll('.dot-menu img');
   editImg.forEach((item, i) => {
+
     item.addEventListener("click", ()=>{
       const hiddenInput = item.parentNode.parentNode.querySelector(".hidden-edit-input");
       const visiableInput = item.parentNode.parentNode.querySelector(".visiable-input");
+
       item.src = "https://img.icons8.com/material-outlined/24/000000/trash--v2.png";
 
-      hiddenInput.style.display = "block";
       visiableInput.style.display = "none";
+      hiddenInput.style.display = "block";
+      hiddenInput.setSelectionRange(hiddenInput.value.length, hiddenInput.value.length);
+      hiddenInput.focus();
+      item.parentNode.parentNode.style.backgroundColor="#FFFF99";
+
+
+      // waiting for being edited
       hiddenInput.addEventListener("keyup", ()=>{
         if (event.keyCode === 13){
           visiableInput.querySelector("label").textContent = hiddenInput.value;
@@ -74,6 +82,7 @@ export function editTask(arr){
           location.reload();
         }
       })
+      // waiting for be removed
       item.addEventListener("click",(e)=>{
         let itemIndex = e.target.parentNode.parentNode.querySelector(".visiable-input").querySelector("input").id;
         let count = 0;
