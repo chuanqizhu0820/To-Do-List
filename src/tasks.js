@@ -4,14 +4,15 @@ export class TaskList {
   }
 }
 
-export function changeStatus(arr) {
+export const changeStatus = (arr) => {
   const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item) => {
     item.addEventListener('click', (e) => {
-      if (arr[parseInt(e.target.id - 1, 10)].completed) {
-        arr[parseInt(e.target.id - 1, 10)].completed = false;
+      let targetid = e.target.id - 1;
+      if (arr[parseInt(targetid, 10)].completed) {
+        arr[parseInt(targetid, 10)].completed = false;
       } else {
-        arr[parseInt(e.target.id - 1, 10)].completed = true;
+        arr[parseInt(targetid, 10)].completed = true;
       }
       localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
       window.location.reload();
@@ -19,7 +20,7 @@ export function changeStatus(arr) {
   });
 }
 
-export function removeCompletedTask(arr) {
+export const removeCompletedTask = (arr) => {
   const clearBtn = document.querySelector('#clear-btn');
   clearBtn.addEventListener('click', () => {
     const arr0 = arr.filter((item) => item.completed === false);
@@ -29,7 +30,7 @@ export function removeCompletedTask(arr) {
   });
 }
 
-export function addTask(arr) {
+export const addTask = (arr) => {
   const inputBox = document.querySelector('#input-box');
   const form = document.querySelector('form');
   form.addEventListener('submit', (e) => {
@@ -47,7 +48,7 @@ export function addTask(arr) {
   });
 }
 
-export function editTask(arr) {
+export const editTask = (arr) => {
   const editImg = document.querySelectorAll('.dot-menu img');
   editImg.forEach((item) => {
     item.addEventListener('click', () => {
