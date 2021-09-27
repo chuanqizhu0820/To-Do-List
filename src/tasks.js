@@ -8,7 +8,7 @@ export const changeStatus = (arr) => {
   const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item) => {
     item.addEventListener('click', (e) => {
-      let targetid = e.target.id - 1;
+      const targetid = e.target.id - 1;
       if (arr[parseInt(targetid, 10)].completed) {
         arr[parseInt(targetid, 10)].completed = false;
       } else {
@@ -18,7 +18,7 @@ export const changeStatus = (arr) => {
       window.location.reload();
     });
   });
-}
+};
 
 export const removeCompletedTask = (arr) => {
   const clearBtn = document.querySelector('#clear-btn');
@@ -28,7 +28,7 @@ export const removeCompletedTask = (arr) => {
     localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
     window.location.reload();
   });
-}
+};
 
 export const addTask = (arr) => {
   const inputBox = document.querySelector('#input-box');
@@ -46,7 +46,7 @@ export const addTask = (arr) => {
     e.preventDefault();
     window.location.reload();
   });
-}
+};
 
 export const editTask = (arr) => {
   const editImg = document.querySelectorAll('.dot-menu img');
@@ -91,4 +91,4 @@ export const editTask = (arr) => {
       });
     });
   });
-}
+};
