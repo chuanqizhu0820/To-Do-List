@@ -4,23 +4,22 @@ export class TaskList {
   }
 }
 
-export const changeStatus = (arr) => {
+export function changeStatus(arr) {
   const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item) => {
     item.addEventListener('click', (e) => {
-      const targetid = e.target.id - 1;
-      if (arr[parseInt(targetid, 10)].completed) {
-        arr[parseInt(targetid, 10)].completed = false;
+      if (arr[parseInt(e.target.id - 1, 10)].completed) {
+        arr[parseInt(e.target.id - 1, 10)].completed = false;
       } else {
-        arr[parseInt(targetid, 10)].completed = true;
+        arr[parseInt(e.target.id - 1, 10)].completed = true;
       }
       localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
       window.location.reload();
     });
   });
-};
+}
 
-export const removeCompletedTask = (arr) => {
+export function removeCompletedTask(arr) {
   const clearBtn = document.querySelector('#clear-btn');
   clearBtn.addEventListener('click', () => {
     const arr0 = arr.filter((item) => item.completed === false);
@@ -28,9 +27,9 @@ export const removeCompletedTask = (arr) => {
     localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
     window.location.reload();
   });
-};
+}
 
-export const addTask = (arr) => {
+export function addTask(arr) {
   const inputBox = document.querySelector('#input-box');
   const form = document.querySelector('form');
   form.addEventListener('submit', (e) => {
@@ -46,9 +45,9 @@ export const addTask = (arr) => {
     e.preventDefault();
     window.location.reload();
   });
-};
+}
 
-export const editTask = (arr) => {
+export function editTask(arr) {
   const editImg = document.querySelectorAll('.dot-menu img');
   editImg.forEach((item) => {
     item.addEventListener('click', () => {
@@ -91,4 +90,4 @@ export const editTask = (arr) => {
       });
     });
   });
-};
+}
