@@ -4,6 +4,11 @@ export class TaskList {
   }
 }
 
+const saveAndReload = (arr) => {
+  localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+  window.location.reload();
+}
+
 export const changeStatus = (arr) => {
   const checkBoxes = document.querySelectorAll('.form-item input');
   checkBoxes.forEach((item) => {
@@ -14,8 +19,9 @@ export const changeStatus = (arr) => {
       } else {
         arr[parseInt(targetid, 10)].completed = true;
       }
-      localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-      window.location.reload();
+      saveAndReload(arr);
+      // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+      // window.location.reload();
     });
   });
 };
@@ -25,8 +31,9 @@ export const removeCompletedTask = (arr) => {
   clearBtn.addEventListener('click', () => {
     const arr0 = arr.filter((item) => item.completed === false);
     arr0.forEach((item, i) => { item.index = i + 1; });
-    localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
-    window.location.reload();
+    saveAndReload(arr0);
+    // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
+    // window.location.reload();
   });
 };
 
@@ -69,8 +76,9 @@ export const editTask = (arr) => {
           visiableInput.querySelector('label').textContent = hiddenInput.value;
           const itemIndex = visiableInput.querySelector('input').id;
           arr[itemIndex - 1].description = hiddenInput.value;
-          localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-          window.location.reload();
+          saveAndReload(arr);
+          // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+          // window.location.reload();
         }
       });
       // waiting for be removed
@@ -86,8 +94,9 @@ export const editTask = (arr) => {
           }
         });
         arr = remainingTask;
-        localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-        window.location.reload();
+        saveAndReload(arr);
+        // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
+        // window.location.reload();
       });
     });
   });
