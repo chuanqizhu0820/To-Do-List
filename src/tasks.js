@@ -7,7 +7,7 @@ export class TaskList {
 const saveAndReload = (arr) => {
   localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
   window.location.reload();
-}
+};
 
 export const changeStatus = (arr) => {
   const checkBoxes = document.querySelectorAll('.form-item input');
