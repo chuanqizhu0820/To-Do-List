@@ -2,8 +2,9 @@ import * as TaskModule from './tasks.js';
 import './style.css';
 
 let tasks = [];
-if (JSON.parse(localStorage.getItem('tasks')) !== null) {
-  tasks = JSON.parse(localStorage.getItem('tasks')).tasks;
+const localdata = JSON.parse(localStorage.getItem('tasks'));
+if (localdata !== null) {
+  tasks = localdata.tasks;
 }
 
 const htmldiv = document.querySelector('.itemhtml');
