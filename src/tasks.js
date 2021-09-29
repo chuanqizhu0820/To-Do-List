@@ -1,3 +1,5 @@
+import { ModuleFilenameHelpers } from "webpack";
+
 export class TaskList {
   constructor(arr) {
     this.tasks = arr;
@@ -93,3 +95,10 @@ export const editTask = (arr) => {
     });
   });
 };
+
+function add(a, b) {
+  return a + b;
+}
+
+// export default add;
+module.exports = add;
