@@ -1,4 +1,3 @@
-
 import localStorageMock from './localStorage.js';
 
 const addTask = (arr) => {
