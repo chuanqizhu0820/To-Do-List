@@ -93,20 +93,3 @@ export const editTask = (arr) => {
     });
   });
 };
-
-// function add(a, b) {
-//   return a + b;
-// }
-
-// function subtract(a, b) {
-//   return a - b;
-// }
-
-// export function addAndSubtract(a, b, c) {
-//   return subtract(add(a, b), c);
-// }
-
-// exports.add = add;
-// exports.subtract = subtract;
-
-// export default add;
