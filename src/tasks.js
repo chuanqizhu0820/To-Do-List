@@ -20,8 +20,6 @@ export const changeStatus = (arr) => {
         arr[parseInt(targetid, 10)].completed = true;
       }
       saveAndReload(arr);
-      // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-      // window.location.reload();
     });
   });
 };
@@ -32,8 +30,6 @@ export const removeCompletedTask = (arr) => {
     const arr0 = arr.filter((item) => item.completed === false);
     arr0.forEach((item, i) => { item.index = i + 1; });
     saveAndReload(arr0);
-    // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr0)));
-    // window.location.reload();
   });
 };
 
@@ -77,8 +73,6 @@ export const editTask = (arr) => {
           const itemIndex = visiableInput.querySelector('input').id;
           arr[itemIndex - 1].description = hiddenInput.value;
           saveAndReload(arr);
-          // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-          // window.location.reload();
         }
       });
       // waiting for be removed
@@ -95,8 +89,6 @@ export const editTask = (arr) => {
         });
         arr = remainingTask;
         saveAndReload(arr);
-        // localStorage.setItem('tasks', JSON.stringify(new TaskList(arr)));
-        // window.location.reload();
       });
     });
   });
