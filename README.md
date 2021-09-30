@@ -1,6 +1,8 @@
 # to-do-list
 Microverse Program Project
 
+![screenshot](to-do-list.png)
+
 
 ## Built With
 
