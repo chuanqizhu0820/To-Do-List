@@ -1,5 +1,5 @@
-import localStorageMock from '../__mocks__/localStorage';
-import removeCompletedTask from '../__mocks__/removeCompletedTask';
+import localStorageMock from '../__mocks__/localStorage.js';
+import removeCompletedTask from '../__mocks__/removeCompletedTask.js';
 
 describe('Remove tasks', () => {
   const arr = [
